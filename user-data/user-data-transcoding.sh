@@ -12,8 +12,8 @@ yum -y install \
 aws configure set default.region $REGION
 
 cd /tmp && \
-  curl -O https://www.johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz && \
-  tar Jxf ffmpeg-git-64bit-static.tar.xz && \
+  curl -kO https://www.johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz && \
+  tar Jxf ffmpeg-git-amd64-static.tar.xz && \
   cp -av ffmpeg*/{ff*,qt*} /usr/local/bin
 
 echo '$SystemLogRateLimitInterval 2' >> /etc/rsyslog.conf
