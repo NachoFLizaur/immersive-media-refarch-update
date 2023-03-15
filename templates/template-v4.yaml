@@ -346,7 +346,7 @@ Resources:
 
                 REGION=${AWS::Region} INGRESSBUCKET=${transcodingIngressBucket} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
                 ENI_ID=${backupOriginElasticNetworkInterface} ALLOCATION_ID=${backupOriginElasticIp.AllocationId}
-                WAITCONDITIONHANDLE="${backupOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh >> /home/ec2-user/user-data.log
+                WAITCONDITIONHANDLE="${backupOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh
 
                 '
         - IamInstanceProfile:
@@ -381,7 +381,7 @@ Resources:
 
                 REGION=${AWS::Region} INGRESSBUCKET=${transcodingIngressBucket} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
                 ENI_ID=${backupOriginElasticNetworkInterface} ALLOCATION_ID=${backupOriginElasticIp.AllocationId}
-                WAITCONDITIONHANDLE="${backupOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh >> /home/ec2-user/user-data.log
+                WAITCONDITIONHANDLE="${backupOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh
 
                 '
         ReplaceUnhealthyInstances: true
@@ -563,7 +563,7 @@ Resources:
                 CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup} EGRESSBUCKETWEBSITEURL=${transcodingEgressBucket.WebsiteURL}
                 PRIMARYORIGINPRIVATEIP=${primaryOriginElasticNetworkInterface.PrimaryPrivateIpAddress}
                 BACKUPORIGINPRIVATEIP=${backupOriginElasticNetworkInterface.PrimaryPrivateIpAddress}
-                WAITCONDITIONHANDLE="${edgeCacheSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-edge.sh >> /home/ec2-user/user-data.log
+                WAITCONDITIONHANDLE="${edgeCacheSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-edge.sh
 
                 '
         - IamInstanceProfile:
@@ -603,7 +603,7 @@ Resources:
                 CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup} EGRESSBUCKETWEBSITEURL=${transcodingEgressBucket.WebsiteURL}
                 PRIMARYORIGINPRIVATEIP=${primaryOriginElasticNetworkInterface.PrimaryPrivateIpAddress}
                 BACKUPORIGINPRIVATEIP=${backupOriginElasticNetworkInterface.PrimaryPrivateIpAddress}
-                WAITCONDITIONHANDLE="${edgeCacheSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-edge.sh >> /home/ec2-user/user-data.log
+                WAITCONDITIONHANDLE="${edgeCacheSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-edge.sh
 
                 '
         ReplaceUnhealthyInstances: true
@@ -850,7 +850,7 @@ Resources:
 
                 REGION=${AWS::Region} INGRESSBUCKET=${transcodingIngressBucket} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
                 ENI_ID=${primaryOriginElasticNetworkInterface} ALLOCATION_ID=${primaryOriginElasticIp.AllocationId}
-                WAITCONDITIONHANDLE="${primaryOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh >> /home/ec2-user/user-data.log
+                WAITCONDITIONHANDLE="${primaryOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh
 
                 '
         - IamInstanceProfile:
@@ -885,7 +885,7 @@ Resources:
 
                 REGION=${AWS::Region} INGRESSBUCKET=${transcodingIngressBucket} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
                 ENI_ID=${primaryOriginElasticNetworkInterface} ALLOCATION_ID=${primaryOriginElasticIp.AllocationId}
-                WAITCONDITIONHANDLE="${primaryOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh >> /home/ec2-user/user-data.log
+                WAITCONDITIONHANDLE="${primaryOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh
 
                 '
         ReplaceUnhealthyInstances: true
@@ -1205,7 +1205,7 @@ Resources:
                 cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} ECS_CLUSTER=${testStreamEcsCluster} WAITCONDITIONHANDLE="${testStreamSpotFleetWaitConditionHandle}"
-                bash /home/ec2-user/immersive-media-refarch/user-data/user-data-test.sh >> /home/ec2-user/user-data.log
+                bash /home/ec2-user/immersive-media-refarch/user-data/user-data-test.sh
 
                 '
         - IamInstanceProfile:
@@ -1239,7 +1239,7 @@ Resources:
                 cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} ECS_CLUSTER=${testStreamEcsCluster} WAITCONDITIONHANDLE="${testStreamSpotFleetWaitConditionHandle}"
-                bash /home/ec2-user/immersive-media-refarch/user-data/user-data-test.sh >> /home/ec2-user/user-data.log
+                bash /home/ec2-user/immersive-media-refarch/user-data/user-data-test.sh
 
                 '
         ReplaceUnhealthyInstances: true
@@ -1462,7 +1462,7 @@ Resources:
 
                 REGION=${AWS::Region} TRANSCODINGINGRESSBUCKET=${transcodingIngressBucket} TRANSCODINGEGRESSBUCKET=${transcodingEgressBucket}
                 TRANSCODINGQUEUE=${transcodingQueue} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
-                WAITCONDITIONHANDLE="${transcodingSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-transcoding.sh >> /home/ec2-user/user-data.log
+                WAITCONDITIONHANDLE="${transcodingSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-transcoding.sh
 
                 '
         - IamInstanceProfile:
@@ -1500,7 +1500,7 @@ Resources:
 
                 REGION=${AWS::Region} TRANSCODINGINGRESSBUCKET=${transcodingIngressBucket} TRANSCODINGEGRESSBUCKET=${transcodingEgressBucket}
                 TRANSCODINGQUEUE=${transcodingQueue} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
-                WAITCONDITIONHANDLE="${transcodingSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-transcoding.sh >> /home/ec2-user/user-data.log
+                WAITCONDITIONHANDLE="${transcodingSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-transcoding.sh
 
                 '
         ReplaceUnhealthyInstances: true
