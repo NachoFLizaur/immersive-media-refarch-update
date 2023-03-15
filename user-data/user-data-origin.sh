@@ -21,12 +21,12 @@ aws configure set default.region $REGION
 aws ec2 attach-network-interface --network-interface-id $ENI_ID --instance-id $INSTANCE_ID --device-index 1
 
 cd /tmp && \
-  curl -kO https://www.johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz && \
-  tar Jxf ffmpeg-git-amd64-static.tar.xz && \
-  cp -av ffmpeg*/{ff*,qt*} /usr/local/bin
+  sudo curl -kO https://www.johnvansickle.com/ffmpeg/builds/ffmpeg-git-amd64-static.tar.xz && \
+  sudo tar Jxf ffmpeg-git-amd64-static.tar.xz && \
+  sudo cp -av ffmpeg*/{ff*,qt*} /usr/local/bin
 
 cd /tmp && \
-  git clone https://github.com/arut/nginx-rtmp-module
+  sudo git clone https://github.com/arut/nginx-rtmp-module
 
 # ! Old way of rebuilding nginx w/ the RTMP module
 
@@ -50,19 +50,21 @@ cd /tmp && \
 
 # ? New way of rebuilding nginx w/ the RTMP module
 
-# yum -y install nginx
+yum -y install nginx
 
-yum install git gcc make pcre-devel openssl-devel zlib1g-dev
+yum -y remove nginx
+
+yum install git gcc make pcre-devel openssl-devel zlib1g-devel
 
 mkdir ~/build && cd ~/build
 
 git clone https://github.com/arut/nginx-rtmp-module
 
-wget http://nginx.org/download/nginx-1.20.1.tar.gz
-tar xzf nginx-1.20.1.tar.gz
-cd nginx-1.20.1
+wget http://nginx.org/download/nginx-1.18.0.tar.gz
+tar xzf nginx-1.18.0.tar.gz
+cd nginx-1.18.0
 
-./configure --with-http_ssl_module --add-module=../nginx-rtmp-module --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log
+./configure --with-http_ssl_module --add-module=../nginx-rtmp-module
 make
 make install
 
@@ -99,7 +101,10 @@ sed -i "s|%CLOUDWATCHLOGSGROUP%|$CLOUDWATCHLOGSGROUP|g" /etc/awslogs/awslogs.con
 
 chkconfig rsyslog on && service rsyslog restart
 chkconfig awslogs on && service awslogs restart
-chkconfig /usr/local/nginx/sbin/nginx on && service nginx restart
+# chkconfig /usr/local/nginx/sbin/nginx on && service nginx restart
+
+/usr/local/nginx/sbin/nginx -s stop
+/usr/local/nginx/sbin/nginx
 
 start spot-instance-termination-notice-handler
 
