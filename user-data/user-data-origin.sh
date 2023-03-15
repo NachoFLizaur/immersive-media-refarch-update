@@ -30,11 +30,11 @@ cd /tmp && \
 
 # ! Old way of rebuilding nginx w/ the RTMP module
 
-yum -y install \
-  nginx && \
-  yes | get_reference_source -p nginx && \
-  yum -y remove nginx && \
-  rpm -Uvh /usr/src/srpm/debug/nginx*.rpm
+# yum -y install \
+#   nginx && \
+#   yes | get_reference_source -p nginx && \
+#   yum -y remove nginx && \
+#   rpm -Uvh /usr/src/srpm/debug/nginx*.rpm
 
 # curl https://nginx.org/packages/rhel/7/x86_64/RPMS/nginx-1.18.0-1.el7.ngx.x86_64.rpm --output nginx-1.18.0-1.el7.ngx.x86_64.rpm
 
