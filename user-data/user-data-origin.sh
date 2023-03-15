@@ -30,13 +30,13 @@ cd /tmp && \
 
 # ! Old way of rebuilding nginx w/ the RTMP module
 
-# yum -y install \
-#   nginx && \
-#   yes | get_reference_source -p nginx && \
-#   yum -y remove nginx && \
-#   rpm -Uvh /usr/src/srpm/debug/nginx*.rpm
+yum -y install \
+  nginx && \
+  yes | get_reference_source -p nginx && \
+  yum -y remove nginx && \
+  rpm -Uvh /usr/src/srpm/debug/nginx*.rpm
 
-  # curl https://nginx.org/packages/rhel/7/x86_64/RPMS/nginx-1.18.0-1.el7.ngx.x86_64.rpm --output nginx-1.18.0-1.el7.ngx.x86_64.rpm
+# curl https://nginx.org/packages/rhel/7/x86_64/RPMS/nginx-1.18.0-1.el7.ngx.x86_64.rpm --output nginx-1.18.0-1.el7.ngx.x86_64.rpm
 
 # sed -i "s|configure|configure --add-module=/tmp/nginx-rtmp-module|" /rpmbuild/SPECS/nginx.spec
 
@@ -58,17 +58,18 @@ mkdir ~/build && cd ~/build
 
 git clone https://github.com/arut/nginx-rtmp-module
 
-wget http://nginx.org/download/nginx-1.18.0.tar.gz
-tar xzf nginx-1.18.0.tar.gz
-cd nginx-1.18.0
+wget http://nginx.org/download/nginx-1.20.1.tar.gz
+tar xzf nginx-1.20.1.tar.gz
+cd nginx-1.20.1
 
-./configure --with-http_ssl_module --add-module=../nginx-rtmp-module
+./configure --with-http_ssl_module --add-module=../nginx-rtmp-module --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log
 make
 make install
 
 # ? ##############################################
 
 mkdir /usr/local/nginx/conf/rtmp.d
+mkdir /usr/local/nginx/conf/default.d
 
 mkdir -p /var/lib/nginx/{rec,hls,s3}
 
@@ -98,11 +99,7 @@ sed -i "s|%CLOUDWATCHLOGSGROUP%|$CLOUDWATCHLOGSGROUP|g" /etc/awslogs/awslogs.con
 
 chkconfig rsyslog on && service rsyslog restart
 chkconfig awslogs on && service awslogs restart
-# chkconfig /usr/local/nginx/sbin/nginx on && service nginx restart
-
-/usr/local/nginx/sbin/nginx -s stop
-/usr/local/nginx/sbin/nginx
-
+chkconfig /usr/local/nginx/sbin/nginx on && service nginx restart
 
 start spot-instance-termination-notice-handler
 
