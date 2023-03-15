@@ -50,7 +50,7 @@ cd /tmp && \
 
 # ? New way of rebuilding nginx w/ the RTMP module
 
-yum -y install nginx
+# yum -y install nginx
 
 yum install git gcc make pcre-devel openssl-devel zlib1g-dev
 
