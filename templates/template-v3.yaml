@@ -342,11 +342,11 @@ Resources:
 
                 yum -y install git
 
-                cd / && git clone https://github.com/awslabs/immersive-media-refarch.git
+                cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} INGRESSBUCKET=${transcodingIngressBucket} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
                 ENI_ID=${backupOriginElasticNetworkInterface} ALLOCATION_ID=${backupOriginElasticIp.AllocationId}
-                WAITCONDITIONHANDLE="${backupOriginSpotFleetWaitConditionHandle}" bash /immersive-media-refarch/user-data/user-data-origin.sh
+                WAITCONDITIONHANDLE="${backupOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh
 
                 '
         - IamInstanceProfile:
@@ -377,11 +377,11 @@ Resources:
 
                 yum -y install git
 
-                cd / && git clone https://github.com/awslabs/immersive-media-refarch.git
+                cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} INGRESSBUCKET=${transcodingIngressBucket} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
                 ENI_ID=${backupOriginElasticNetworkInterface} ALLOCATION_ID=${backupOriginElasticIp.AllocationId}
-                WAITCONDITIONHANDLE="${backupOriginSpotFleetWaitConditionHandle}" bash /immersive-media-refarch/user-data/user-data-origin.sh
+                WAITCONDITIONHANDLE="${backupOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh
 
                 '
         ReplaceUnhealthyInstances: true
@@ -557,13 +557,13 @@ Resources:
 
                 yum -y install git
 
-                cd / && git clone https://github.com/awslabs/immersive-media-refarch.git
+                cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} APPLICATIONLOADBALANCERTARGETGROUP=${applicationLoadBalancerTargetGroup}
                 CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup} EGRESSBUCKETWEBSITEURL=${transcodingEgressBucket.WebsiteURL}
                 PRIMARYORIGINPRIVATEIP=${primaryOriginElasticNetworkInterface.PrimaryPrivateIpAddress}
                 BACKUPORIGINPRIVATEIP=${backupOriginElasticNetworkInterface.PrimaryPrivateIpAddress}
-                WAITCONDITIONHANDLE="${edgeCacheSpotFleetWaitConditionHandle}" bash /immersive-media-refarch/user-data/user-data-edge.sh
+                WAITCONDITIONHANDLE="${edgeCacheSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-edge.sh
 
                 '
         - IamInstanceProfile:
@@ -597,13 +597,13 @@ Resources:
 
                 yum -y install git
 
-                cd / && git clone https://github.com/awslabs/immersive-media-refarch.git
+                cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} APPLICATIONLOADBALANCERTARGETGROUP=${applicationLoadBalancerTargetGroup}
                 CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup} EGRESSBUCKETWEBSITEURL=${transcodingEgressBucket.WebsiteURL}
                 PRIMARYORIGINPRIVATEIP=${primaryOriginElasticNetworkInterface.PrimaryPrivateIpAddress}
                 BACKUPORIGINPRIVATEIP=${backupOriginElasticNetworkInterface.PrimaryPrivateIpAddress}
-                WAITCONDITIONHANDLE="${edgeCacheSpotFleetWaitConditionHandle}" bash /immersive-media-refarch/user-data/user-data-edge.sh
+                WAITCONDITIONHANDLE="${edgeCacheSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-edge.sh
 
                 '
         ReplaceUnhealthyInstances: true
@@ -846,11 +846,11 @@ Resources:
 
                 yum -y install git
 
-                cd / && git clone https://github.com/awslabs/immersive-media-refarch.git
+                cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} INGRESSBUCKET=${transcodingIngressBucket} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
                 ENI_ID=${primaryOriginElasticNetworkInterface} ALLOCATION_ID=${primaryOriginElasticIp.AllocationId}
-                WAITCONDITIONHANDLE="${primaryOriginSpotFleetWaitConditionHandle}" bash /immersive-media-refarch/user-data/user-data-origin.sh
+                WAITCONDITIONHANDLE="${primaryOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh
 
                 '
         - IamInstanceProfile:
@@ -881,11 +881,11 @@ Resources:
 
                 yum -y install git
 
-                cd / && git clone https://github.com/awslabs/immersive-media-refarch.git
+                cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} INGRESSBUCKET=${transcodingIngressBucket} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
                 ENI_ID=${primaryOriginElasticNetworkInterface} ALLOCATION_ID=${primaryOriginElasticIp.AllocationId}
-                WAITCONDITIONHANDLE="${primaryOriginSpotFleetWaitConditionHandle}" bash /immersive-media-refarch/user-data/user-data-origin.sh
+                WAITCONDITIONHANDLE="${primaryOriginSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-origin.sh
 
                 '
         ReplaceUnhealthyInstances: true
@@ -1202,10 +1202,10 @@ Resources:
 
                 yum -y install git
 
-                cd / && git clone https://github.com/awslabs/immersive-media-refarch.git
+                cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} ECS_CLUSTER=${testStreamEcsCluster} WAITCONDITIONHANDLE="${testStreamSpotFleetWaitConditionHandle}"
-                bash /immersive-media-refarch/user-data/user-data-test.sh
+                bash /home/ec2-user/immersive-media-refarch/user-data/user-data-test.sh
 
                 '
         - IamInstanceProfile:
@@ -1236,10 +1236,10 @@ Resources:
 
                 yum -y install git
 
-                cd / && git clone https://github.com/awslabs/immersive-media-refarch.git
+                cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} ECS_CLUSTER=${testStreamEcsCluster} WAITCONDITIONHANDLE="${testStreamSpotFleetWaitConditionHandle}"
-                bash /immersive-media-refarch/user-data/user-data-test.sh
+                bash /home/ec2-user/immersive-media-refarch/user-data/user-data-test.sh
 
                 '
         ReplaceUnhealthyInstances: true
@@ -1458,11 +1458,11 @@ Resources:
 
                 yum -y install git
 
-                cd / && git clone https://github.com/awslabs/immersive-media-refarch.git
+                cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} TRANSCODINGINGRESSBUCKET=${transcodingIngressBucket} TRANSCODINGEGRESSBUCKET=${transcodingEgressBucket}
                 TRANSCODINGQUEUE=${transcodingQueue} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
-                WAITCONDITIONHANDLE="${transcodingSpotFleetWaitConditionHandle}" bash /immersive-media-refarch/user-data/user-data-transcoding.sh
+                WAITCONDITIONHANDLE="${transcodingSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-transcoding.sh
 
                 '
         - IamInstanceProfile:
@@ -1496,11 +1496,11 @@ Resources:
 
                 yum -y install git
 
-                cd / && git clone https://github.com/awslabs/immersive-media-refarch.git
+                cd /home/ec2-user && git clone https://github.com/NachoFLizaur/immersive-media-refarch-update.git immersive-media-refarch
 
                 REGION=${AWS::Region} TRANSCODINGINGRESSBUCKET=${transcodingIngressBucket} TRANSCODINGEGRESSBUCKET=${transcodingEgressBucket}
                 TRANSCODINGQUEUE=${transcodingQueue} CLOUDWATCHLOGSGROUP=${cloudWatchLogsGroup}
-                WAITCONDITIONHANDLE="${transcodingSpotFleetWaitConditionHandle}" bash /immersive-media-refarch/user-data/user-data-transcoding.sh
+                WAITCONDITIONHANDLE="${transcodingSpotFleetWaitConditionHandle}" bash /home/ec2-user/immersive-media-refarch/user-data/user-data-transcoding.sh
 
                 '
         ReplaceUnhealthyInstances: true

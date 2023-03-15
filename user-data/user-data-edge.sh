@@ -14,10 +14,10 @@ aws configure set default.region $REGION
 echo '$SystemLogRateLimitInterval 2' >> /etc/rsyslog.conf
 echo '$SystemLogRateLimitBurst 500' >> /etc/rsyslog.conf
 
-cp -av /immersive-media-refarch/user-data/edge/nginx/nginx.conf /etc/nginx/
-cp -av /immersive-media-refarch/user-data/edge/awslogs/awslogs.conf /etc/awslogs/
-cp -av /immersive-media-refarch/user-data/edge/init/spot-instance-termination-notice-handler.conf /etc/init/spot-instance-termination-notice-handler.conf
-cp -av /immersive-media-refarch/user-data/edge/bin/spot-instance-termination-notice-handler.sh /usr/local/bin/
+cp -av /home/ec2-user/immersive-media-refarch/user-data/edge/nginx/nginx.conf /etc/nginx/
+cp -av /home/ec2-user/immersive-media-refarch/user-data/edge/awslogs/awslogs.conf /etc/awslogs/
+cp -av /home/ec2-user/immersive-media-refarch/user-data/edge/init/spot-instance-termination-notice-handler.conf /etc/init/spot-instance-termination-notice-handler.conf
+cp -av /home/ec2-user/immersive-media-refarch/user-data/edge/bin/spot-instance-termination-notice-handler.sh /usr/local/bin/
 
 chmod +x /usr/local/bin/spot-instance-termination-notice-handler.sh
 

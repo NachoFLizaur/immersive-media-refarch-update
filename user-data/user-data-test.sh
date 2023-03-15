@@ -12,8 +12,8 @@ aws configure set default.region $REGION
 
 echo ECS_CLUSTER=$ECS_CLUSTER >> /etc/ecs/ecs.config
 
-cp -av /immersive-media-refarch/user-data/test/init/spot-instance-termination-notice-handler.conf /etc/init/spot-instance-termination-notice-handler.conf
-cp -av /immersive-media-refarch/user-data/test/bin/spot-instance-termination-notice-handler.sh /usr/local/bin/
+cp -av /home/ec2-user/immersive-media-refarch/user-data/test/init/spot-instance-termination-notice-handler.conf /etc/init/spot-instance-termination-notice-handler.conf
+cp -av /home/ec2-user/immersive-media-refarch/user-data/test/bin/spot-instance-termination-notice-handler.sh /usr/local/bin/
 
 chmod +x /usr/local/bin/spot-instance-termination-notice-handler.sh
 
